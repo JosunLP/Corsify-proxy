@@ -1,0 +1,42 @@
+.login
+	display: block
+	padding: 2rem
+	background: $main-menue-background-color
+	border-radius: 0.5rem
+	min-height: 20rem
+	border-style: solid
+	border-color: grey
+	border-width: thin
+	margin: auto
+
+	@include respond-to(handhelds)
+		font-size: 2.5em
+		margin-top: -2em
+		margin-left: -0.8em
+		margin-right: -0.8em
+		border-radius: 0
+
+	@include respond-to(medium-screens)
+		max-width: 40rem
+
+	@include respond-to(wide-screens)
+		max-width: 40rem
+
+	.choice
+		width: 100%
+		padding: 0
+		display: flex
+		margin: 0 auto
+		text-align: center !important
+
+		.login-form
+			width: 100%
+			background-color: lightblue
+			@include partialButton
+			@include hoverMe
+
+		.register-form
+			width: 100%
+			background-color: lightcyan
+			@include partialButton
+			@include hoverMe
