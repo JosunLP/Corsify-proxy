@@ -2,36 +2,25 @@
     "head": {
         "title": "configFile",
         "version": "1.0.0",
-        "app_name": "Example Web App",
+        "app_name": "Corsify Proxy Server",
         "framework_info": {
             "framework_name": "WAPS-Framework",
             "framework_version": "1.6.1",
-            "framework_repository": "https://gitlab.com/webapp-php-sample/framework",
+            "framework_repository": "https://gitlab.com/waps/framework",
             "framework_wiki": "https://waps-framework.info"
         }
     },
     "metaData": {
         "charset": "utf8",
         "language": "de_DE",
-        "description": "Example Web App",
+        "description": "Corsify Proxy Server",
         "keywords": "PHP,HTMl,XML,JavaScript,CSS,APP",
-        "author": "Max Mustermann",
-        "page_title": "Web Application PHP",
-        "copyright": "WAPS-Team",
+        "author": "Jonas Pfalzgraf",
+        "page_title": "Corsify Proxy Server",
+        "copyright": "Jonas Pfalzgraf",
         "fav_icon": "/content/img/fav.ico",
         "logo": "/content/img/fav.svg",
         "domain": "localhost"
-    },
-    "database": {
-        "mysql_host": "localhost:3306",
-        "mysql_database": "webapp_php_sample",
-        "mysql_user": "root",
-        "mysql_keyword": "",
-        "database_table_list": [
-            "iplogg",
-            "usr",
-            "passwd"
-        ]
     },
     "mailConfig": {
         "infoMail": "info",
@@ -52,8 +41,5 @@
             "..",
             ".gitkeep"
         ]
-    },
-    "migrationConfig": {
-        "migration_path": "./core/database/migrations/"
     }
 }

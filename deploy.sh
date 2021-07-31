@@ -12,7 +12,6 @@ cp -rf ./framework.src/custom $DEPLOY_TARGET/custom
 cp -rf ./framework.src/model $DEPLOY_TARGET/model
 cp -rf ./framework.src/page $DEPLOY_TARGET/page
 cp -rf ./framework.src/API.php $DEPLOY_TARGET/API.php
-cp -rf ./framework.src/CLI.php $DEPLOY_TARGET/CLI.php
 cp -rf ./framework.src/index.php $DEPLOY_TARGET/index.php
 cp -rf ./framework.src/robots.txt $DEPLOY_TARGET/robots.txt
 cp -rf ./framework.src/.htaccess $DEPLOY_TARGET/.htaccess
