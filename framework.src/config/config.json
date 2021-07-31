@@ -1,0 +1,45 @@
+{
+    "head": {
+        "title": "configFile",
+        "version": "1.0.0",
+        "app_name": "Corsify Proxy Server",
+        "framework_info": {
+            "framework_name": "WAPS-Framework",
+            "framework_version": "1.6.1",
+            "framework_repository": "https://gitlab.com/waps/framework",
+            "framework_wiki": "https://waps-framework.info"
+        }
+    },
+    "metaData": {
+        "charset": "utf8",
+        "language": "de_DE",
+        "description": "Corsify Proxy Server",
+        "keywords": "PHP,HTMl,XML,JavaScript,CSS,APP",
+        "author": "Jonas Pfalzgraf",
+        "page_title": "Corsify Proxy Server",
+        "copyright": "Jonas Pfalzgraf",
+        "fav_icon": "/content/img/fav.ico",
+        "logo": "/content/img/fav.svg",
+        "domain": "localhost"
+    },
+    "mailConfig": {
+        "infoMail": "info",
+        "autoMail": "auto",
+        "supportMail": "support"
+    },
+    "defaultConfig": {
+        "default_string": "DEFAULT",
+        "default_int": 42,
+        "default_bool": true,
+        "default_array": [
+            "1",
+            2,
+            true
+        ],
+        "default_file_filter": [
+            ".",
+            "..",
+            ".gitkeep"
+        ]
+    }
+}

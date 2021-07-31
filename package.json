@@ -1,0 +1,48 @@
+{
+    "name": "corsify-proxy",
+    "version": "1.0.0",
+    "description": "Ein API Proxy zum behandeln von fehlenden CORS freigaben für RSS und ATOM Feeds",
+    "private": true,
+    "scripts": {
+        "build-css": "sass framework.src/src/sass/main.sass framework.src/content/css/main.css --style compressed",
+        "build-css-w": "sass framework.src/src/sass/main.sass framework.src/content/css/main.css --watch",
+        "build-js": "webpack",
+        "build": "npm run build-css && webpack",
+        "deploy": "npm run build && sh deploy.sh"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com:JosunLP/Corsify-proxy.git"
+    },
+    "author": "Jonas Pfalzgraf",
+    "license": "MPL-2.0",
+    "bugs": {
+        "url": "https://github.com/JosunLP/Corsify-proxy/issues"
+    },
+    "homepage": "https://github.com/JosunLP/Corsify-proxy/blob/main/README.md",
+    "dependencies": {
+        "@popperjs/core": "^2.4.0",
+        "bootstrap": "^4.5.0",
+        "jquery": "^3.5.1",
+        "sweetalert2": "^8.19.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.10.1",
+        "@babel/core": "^7.10.2",
+        "@babel/preset-env": "^7.14.7",
+        "@babel/preset-typescript": "^7.10.1",
+        "@fortawesome/fontawesome-free": "^5.12.1",
+        "@types/bootstrap": "^4.5.0",
+        "@types/jquery": "^3.3.38",
+        "@types/node": "^12.12.43",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^8.0.6",
+        "babel-preset-env": "^1.7.0",
+        "core-js": "^3.15.1",
+        "sass": "^1.26.7",
+        "ts-loader": "^6.2.1",
+        "typescript": "^3.9.3",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11"
+    }
+}
