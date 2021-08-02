@@ -93,7 +93,6 @@ class Main
 
             self::createPageEntry($pageObj, $active, $current, $pageContainer);
         }
-        SessionTool::UserWelcome();
     }
 
 	/**

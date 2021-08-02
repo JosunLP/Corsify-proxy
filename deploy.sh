@@ -1,7 +1,7 @@
-DEPLOY_TARGET=/var/www/html/
+DEPLOY_TARGET=/opt/lampp/htdocs/
 #C:/xampp/htdocs
 #./framework.dist
-#C:/var/www/html/
+#/opt/lampp/htdocs/
 
 rm -rf $DEPLOY_TARGET
 mkdir -p $DEPLOY_TARGET

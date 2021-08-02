@@ -11,8 +11,6 @@ use webapp_php_sample_class\StartUp;
 include 'core.loader.php';
 
 try {
-    $database_link = StartUp::loadDatabase();
-    StartUp::checkDatabaseStatus();
     $pageMap = StartUp::loadPages();
 } catch (Exception $e) {
     ErrorHandler::FireError($e->getCode(), $e->getMessage());
@@ -20,5 +18,3 @@ try {
 $pagePath = Main::validateHome(Main::getUrlInterpreter());
 $pageList = Main::validateFile('page/open/');
 $pageName = Main::getPageNameFromPath($pagePath);
-
-Main::ipCheck($database_link);
