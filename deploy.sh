@@ -1,6 +1,7 @@
-DEPLOY_TARGET=./framework.dist
+DEPLOY_TARGET=/var/www/html/
 #C:/xampp/htdocs
 #./framework.dist
+#C:/var/www/html/
 
 rm -rf $DEPLOY_TARGET
 mkdir -p $DEPLOY_TARGET
