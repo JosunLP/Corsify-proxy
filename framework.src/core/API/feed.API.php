@@ -5,9 +5,11 @@ use webapp_php_sample_class\JsonHandler;
 use webapp_php_sample_class\Main;
 use webapp_php_sample_class\FeedValidator;
 
+header("Access-Control-Allow-Origin: *");
+
 try {
-    $command = Main::checkRequest('post', 'svmode');
-    $dataUrl = Main::checkRequest('post', 'dataUrl');
+    $command = Main::checkRequest('get', 'feedMode');
+    $dataUrl = Main::checkRequest('get', 'dataUrl');
 
     if ($command === NULL) {
         $command = DEFAULT_STRING;
@@ -16,7 +18,8 @@ try {
     if ($dataUrl === NULL) {
         $dataUrl = DEFAULT_STRING;
     }
-} catch (Error $e) {
+} catch (Exception $e) {
+    ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
     $command = DEFAULT_STRING;
     $dataUrl = DEFAULT_STRING;
 }
@@ -35,11 +38,15 @@ try {
         case 'rss':
             if (FeedValidator::validate_RSS($feedData)) {
                 echo ($feedData);
+            } else {
+                JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
             }
             break;
         case 'atom':
             if (FeedValidator::validate_ATOM($feedData)) {
                 echo ($feedData);
+            } else {
+                JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
             }
             break;
         default:

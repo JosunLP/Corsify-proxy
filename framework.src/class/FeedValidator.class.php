@@ -2,6 +2,8 @@
 
 namespace webapp_php_sample_class;
 
+use Error;
+
 /**
  * Class FeedValidator
  * @package webapp_php_sample_class
@@ -14,18 +16,7 @@ class FeedValidator
      */
     public static function validate_RSS(string $feed): bool
     {
-        $data = DatatypeConverter::xml2json($feed);
-        $obj = json_decode($data);
-
-        if (is_bool($data, false)) {
-            return false;
-        }
-
-        if ($obj->rss) {
-            return true;
-        }
-
-        return false;
+        return self::checkForXmlFields($feed, "channel");
     }
 
     /**
@@ -34,17 +25,22 @@ class FeedValidator
      */
     public static function validate_ATOM(string $feed): bool
     {
-        $data = DatatypeConverter::xml2json($feed);
-        $obj = json_decode($data);
+        return self::checkForXmlFields($feed, "subtitle");
+    }
 
-        if (is_bool($data, false)) {
+    /**
+     * The check for specific XML fields
+     * @param $xml string of the xml to check
+     * @param $target string check value
+     */
+    private static function checkForXmlFields(string $xml, $target): bool
+    {
+        $obj = simplexml_load_string($xml);
+
+        if (property_exists($obj, $target)) {
+            return true;
+        } else {
             return false;
         }
-
-        if ($obj->feed) {
-            return true;
-        }
-
-        return false;
     }
 }
