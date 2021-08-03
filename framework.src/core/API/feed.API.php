@@ -5,7 +5,8 @@ use webapp_php_sample_class\JsonHandler;
 use webapp_php_sample_class\Main;
 use webapp_php_sample_class\FeedValidator;
 
-header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/rss+xml; charset=utf-8');
 
 try {
     $command = Main::checkRequest('get', 'feedMode');
