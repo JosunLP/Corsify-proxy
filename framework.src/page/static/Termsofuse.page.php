@@ -6,7 +6,14 @@ Title: true;
 */
 
 ?>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Wir übernehmen keine Haftung für die Zugriffe,
+    die über diesen Proxy stattfinden.
+    Der Proxy darf nur bei Endpunkten verwendet werden,
+    von welchen eine Genehmigung des Anbieters vorliegt.
+    Wir speichern KEINE Daten, es liegt nicht einmal eine angebundene Datenbank vor.
+    Wir setzen keine Cookies, außer den technisch notwendigen.
+    Wir arbeiten mit keinem Tracing Anbieter zusammen.
+    Bei missbrauch unseres Proxys bitten wir,
+    sich in erster Instanz an den Verursacher zu wenden.
+    Sollte dieses ohne Erfolg gekrönt sein,
+    können sie sich unter support@josunlp.de melden, damit wir eine Lösung finden.</p>
