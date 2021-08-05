@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/JosunLP/Corsify-proxy/main/framework.src/content/img/fav.png" width="400px" />
+
 # Corsify Proxy Server
 
 ### A simple Proxy API that adds CORS Headers to Atom and RSS Feeds
