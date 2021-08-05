@@ -7,8 +7,10 @@ Master: null;
 */
 ?>
 
+<img src="/content/img/fav.png" alt="Logo" class="logo-main", id="logo-main"/>
+
 <h2>Welcome to the Corsify Proxy</h2>
-<h4>This page will give you a ruff description, how to use the proxy API</h4>
+<p>This page will give you a ruff description, how to use the proxy API</p>
 <br />
 <p>
      First of all, this proxy is intended to be used only with endpoints that have permission from the owner. We are not responsible for actions against this premise.
@@ -16,8 +18,8 @@ Master: null;
 </p>
 <br />
 <hr>
-<h3>Here we have an basic example of how we talk to the API</h3>
-<code>https://domain/API.php?apiMode=feed&feedMode=rss&dataUrl=https://josunlp.de/feed</code>
+<p>Here we have an basic example of how we talk to the API</p>
+<p><code>https://domain/API.php?apiMode=feed&feedMode=rss&dataUrl=https://josunlp.de/feed</code></p>
 <br />
 <div class="caption">
      <p>
