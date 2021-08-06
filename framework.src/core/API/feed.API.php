@@ -5,8 +5,23 @@ use webapp_php_sample_class\JsonHandler;
 use webapp_php_sample_class\Main;
 use webapp_php_sample_class\FeedValidator;
 
+$feedData = file_get_contents($dataUrl);
+$originHeaders = get_headers($dataUrl, false);
+echo (json_encode($originHeaders));
+
+if ($feedData === false) {
+    JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
+}
+
 header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/rss+xml; charset=utf-8');
+
+try {
+    foreach ($originHeaders as $header) {
+        header($header, true);
+    }
+} catch (Error $e) {
+    ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
+}
 
 try {
     $command = Main::checkRequest('get', 'feedMode');
@@ -26,15 +41,6 @@ try {
 }
 
 try {
-    $feedData = file_get_contents($dataUrl);
-    if ($feedData === false) {
-        JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
-    }
-} catch (Exception $e) {
-    ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
-}
-
-try {
     switch ($command) {
         case 'rss':
             if (FeedValidator::validate_RSS($feedData)) {
@@ -49,6 +55,9 @@ try {
             } else {
                 JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
             }
+            break;
+        case 'casual':
+            echo ($feedData);
             break;
         default:
             JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
