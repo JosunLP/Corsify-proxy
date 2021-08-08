@@ -5,6 +5,7 @@ use webapp_php_sample_class\JsonHandler;
 use webapp_php_sample_class\Main;
 use webapp_php_sample_class\FeedValidator;
 
+header('Access-Control-Allow-Origin: *');
 
 try {
     $command = Main::checkRequest('get', 'feedMode');
@@ -18,46 +19,46 @@ try {
         $dataUrl = DEFAULT_STRING;
     }
 } catch (Exception $e) {
+    ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
     $command = DEFAULT_STRING;
     $dataUrl = DEFAULT_STRING;
 }
 
-$feedData = file_get_contents($dataUrl, true);
 $originHeaders = get_headers($dataUrl, false);
 
-if ($feedData === false) {
-    JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
+foreach ($originHeaders as $header) {
+    header($header);
 }
 
-header('Access-Control-Allow-Origin: *');
-
 try {
-    foreach ($originHeaders as $header) {
-        header($header, false);
+    $feedData = file_get_contents($dataUrl);
+    if ($feedData === false) {
+        JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
     }
-} catch (Error $e) {
+} catch (Exception $e) {
     ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
 }
 
-switch ($command) {
-    case 'rss':
-        if (FeedValidator::validate_RSS($feedData)) {
-            echo($feedData);
-        } else {
+try {
+    switch ($command) {
+        case 'rss':
+            if (FeedValidator::validate_RSS($feedData)) {
+                echo ($feedData);
+            } else {
+                JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
+            }
+            break;
+        case 'atom':
+            if (FeedValidator::validate_ATOM($feedData)) {
+                echo ($feedData);
+            } else {
+                JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
+            }
+            break;
+        default:
             JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
-        }
-        break;
-    case 'atom':
-        if (FeedValidator::validate_ATOM($feedData)) {
-            echo($feedData);
-        } else {
-            JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
-        }
-        break;
-    case 'casual':
-        echo($feedData);
-        break;
-    default:
-        JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
-        break;
+            break;
+    }
+} catch (JsonException $e) {
+    ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
 }
