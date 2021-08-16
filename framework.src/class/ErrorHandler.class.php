@@ -170,6 +170,6 @@ class ErrorHandler
 		} catch (Error $e) {
 			self::FireError($e->getCode(), $e->getMessage());
 		}
-        echo '[' . date('YmdHis') . '|' . $type . ']' . '{' . $message . '}';
+        echo '[' . date('YmdHis') . '|' . $type . ']{' . $message . '}';
     }
 }
