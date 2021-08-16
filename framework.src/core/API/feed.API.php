@@ -5,8 +5,6 @@ use webapp_php_sample_class\JsonHandler;
 use webapp_php_sample_class\Main;
 use webapp_php_sample_class\FeedValidator;
 
-header('Access-Control-Allow-Origin: *');
-
 try {
     $command = Main::checkRequest('get', 'feedMode');
     $dataUrl = Main::checkRequest('get', 'dataUrl');
@@ -34,8 +32,13 @@ try {
     ErrorHandler::FireJsonError($th->getCode(), $th->getMessage());
 }
 
+header('Access-Control-Allow-Origin: *');
 foreach ($originHeaders as $header) {
-    header($header, true);
+    if (str_contains($header, 'Transfer-Encoding')) {
+        continue;
+    } else {
+        header($header, true);
+    }
 }
 
 try {
