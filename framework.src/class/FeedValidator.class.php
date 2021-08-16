@@ -2,7 +2,7 @@
 
 namespace webapp_php_sample_class;
 
-use Error;
+use FFI\Exception;
 use webapp_php_sample_class\ErrorHandler;
 
 /**
@@ -36,7 +36,12 @@ class FeedValidator
      */
     private static function checkForXmlFields(string $xml, $target): bool
     {
-        $obj = simplexml_load_string($xml);
+        try {
+            $obj = simplexml_load_string($xml);
+        } catch(Exception $e) {
+            ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
+            die;
+        }
 
         try {
             if (property_exists($obj, $target)) {
@@ -45,9 +50,8 @@ class FeedValidator
                 return false;
             }
         } catch (\Throwable $th) {
-            ErrorHandler::FireJsonError($th->getCode(), $th->getMessage());
+            ErrorHandler::FireJsonError('Bad input', 'The data you tried to load does not contain a valid feed.');
             die;
         }
-        
     }
 }
