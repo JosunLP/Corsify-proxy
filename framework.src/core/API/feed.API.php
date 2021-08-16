@@ -24,10 +24,18 @@ try {
     $dataUrl = DEFAULT_STRING;
 }
 
-$originHeaders = get_headers($dataUrl, false);
+try {
+    $originHeaders = get_headers($dataUrl, false);
+
+    if ($originHeaders === false) {
+        $originHeaders = [];
+    }
+} catch (\Throwable $th) {
+    ErrorHandler::FireJsonError($th->getCode(), $th->getMessage());
+}
 
 foreach ($originHeaders as $header) {
-    header($header);
+    header($header, true);
 }
 
 try {

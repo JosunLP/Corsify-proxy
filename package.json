@@ -4,11 +4,7 @@
     "description": "Ein API Proxy zum behandeln von fehlenden CORS freigaben für RSS und ATOM Feeds",
     "private": true,
     "scripts": {
-        "build-css": "sass framework.src/src/sass/main.sass framework.src/content/css/main.css --style compressed",
-        "build-css-w": "sass framework.src/src/sass/main.sass framework.src/content/css/main.css --watch",
-        "build-js": "webpack",
-        "build": "npm run build-css && webpack",
-        "deploy": "npm run build && sudo sh deploy.sh"
+        "deploy": "sudo sh deploy.sh"
     },
     "repository": {
         "type": "git",

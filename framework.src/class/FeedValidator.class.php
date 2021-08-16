@@ -3,6 +3,7 @@
 namespace webapp_php_sample_class;
 
 use Error;
+use webapp_php_sample_class\ErrorHandler;
 
 /**
  * Class FeedValidator
@@ -37,10 +38,16 @@ class FeedValidator
     {
         $obj = simplexml_load_string($xml);
 
-        if (property_exists($obj, $target)) {
-            return true;
-        } else {
-            return false;
+        try {
+            if (property_exists($obj, $target)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (\Throwable $th) {
+            ErrorHandler::FireJsonError($th->getCode(), $th->getMessage());
+            die;
         }
+        
     }
 }
