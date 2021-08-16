@@ -7,7 +7,7 @@ RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^(.*)$ index.php [QSA]
+RewriteRule ^(.*)$ API.php [QSA]
 
 RewriteRule /?\.htaccess$ - [F,L]
 RewriteRule ^/?config/config\.json$ - [F,L]
