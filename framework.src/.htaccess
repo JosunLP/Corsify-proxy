@@ -7,13 +7,10 @@ RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^(.*)$ API.php [QSA]
-
 RewriteRule /?\.htaccess$ - [F,L]
 RewriteRule ^/?config/config\.json$ - [F,L]
 RewriteRule ^/?config/plugin\.config\.json$ - [F,L]
 RewriteRule ^/?core/loader/core\.loader\.php$ - [F,L]
-RewriteRule ^/?core/loader/UI\.loader\.php$ - [F,L]
 RewriteRule "\.sql" - [F,L]
 
 ErrorDocument 400 /Error_400
