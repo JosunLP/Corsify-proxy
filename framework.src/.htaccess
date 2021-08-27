@@ -1,23 +1,11 @@
 RewriteEngine On
-RewriteBase /
 
 RewriteCond %{SERVER_PORT} !^443$
-RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule /?\.htaccess$ - [F,L]
 RewriteRule ^/?config/config\.json$ - [F,L]
 RewriteRule ^/?config/plugin\.config\.json$ - [F,L]
 RewriteRule ^/?core/loader/core\.loader\.php$ - [F,L]
 RewriteRule "\.sql" - [F,L]
-
-ErrorDocument 400 /Error_400
-ErrorDocument 401 /Error_401
-ErrorDocument 402 /Error_402
-ErrorDocument 403 /Error_403
-ErrorDocument 404 /Error_404
-ErrorDocument 500 /Error_500
 
 Options All -Indexes

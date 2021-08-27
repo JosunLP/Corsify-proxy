@@ -1,6 +1,6 @@
 {
     "name": "corsify-proxy",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Ein API Proxy zum behandeln von fehlenden CORS freigaben für RSS und ATOM Feeds",
     "private": true,
     "scripts": {
