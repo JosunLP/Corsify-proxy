@@ -72,6 +72,9 @@ try {
                 die;
             }
             break;
+        case 'api':
+            echo ($feedData);
+            break;
         default:
             JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
             die;

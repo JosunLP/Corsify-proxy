@@ -1,7 +1,7 @@
 {
     "head": {
         "title": "configFile",
-        "version": "1.0.0",
+        "version": "1.1.2",
         "app_name": "Corsify Proxy Server",
         "framework_info": {
             "framework_name": "WAPS-Framework",
@@ -20,7 +20,7 @@
         "copyright": "Jonas Pfalzgraf",
         "fav_icon": "/content/img/fav.ico",
         "logo": "/content/img/fav.svg",
-        "domain": "localhost"
+        "domain": "api.josunlp.de"
     },
     "mailConfig": {
         "infoMail": "info",
