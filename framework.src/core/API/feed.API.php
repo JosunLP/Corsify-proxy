@@ -34,12 +34,12 @@ try {
     die;
 }
 
-header('Access-Control-Allow-Origin: *');
 foreach ($originHeaders as $header) {
     try {
         if (
             str_contains($header, 'Transfer-Encoding')
             || str_contains($header, 'Content-Length')
+            || str_contains($header, 'Location')
             ) {
             continue;
         } else {
@@ -49,6 +49,8 @@ foreach ($originHeaders as $header) {
         ErrorHandler::FireJsonError($th->getCode(), $th->getMessage());
     }
 }
+
+header('Access-Control-Allow-Origin: *');
 
 try {
     $feedData = file_get_contents($dataUrl);
