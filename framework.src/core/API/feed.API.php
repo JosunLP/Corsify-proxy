@@ -36,20 +36,26 @@ try {
 
 header('Access-Control-Allow-Origin: *');
 foreach ($originHeaders as $header) {
-    if (str_contains($header, 'Transfer-Encoding')) {
-        continue;
-    } else {
-        header($header, true);
+    try {
+        if (
+            str_contains($header, 'Transfer-Encoding')
+            || str_contains($header, 'Content-Length')
+            ) {
+            continue;
+        } else {
+            header($header, true);
+        }
+    } catch (\Throwable $th) {
+        ErrorHandler::FireJsonError($th->getCode(), $th->getMessage());
     }
 }
 
 try {
     $feedData = file_get_contents($dataUrl);
     if ($feedData === false) {
-        JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
-        die;
+        ErrorHandler::FireJsonError('Fetch Error', 'Fetching Data from ' . $dataUrl . ' failed!');
     }
-} catch (Error $e) {
+} catch (\Throwable $e) {
     ErrorHandler::FireJsonError($e->getCode(), $e->getMessage());
     die;
 }
@@ -60,7 +66,7 @@ try {
             if (FeedValidator::validate_RSS($feedData)) {
                 echo ($feedData);
             } else {
-                JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
+                JsonHandler::FireSimpleJson('No RSS content warning', 'Your request contains no valid RSS Data');
                 die;
             }
             break;
@@ -68,7 +74,7 @@ try {
             if (FeedValidator::validate_ATOM($feedData)) {
                 echo ($feedData);
             } else {
-                JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
+                JsonHandler::FireSimpleJson('No ATOM content warning', 'Your request contains no valid ATOM Data');
                 die;
             }
             break;
@@ -76,7 +82,7 @@ try {
             echo ($feedData);
             break;
         default:
-            JsonHandler::FireSimpleJson('No content warning', 'Your request contains no valid Data');
+            JsonHandler::FireSimpleJson('Endpoint Error', 'Your request contains no valid Data mode');
             die;
     }
 } catch (JsonException $e) {
