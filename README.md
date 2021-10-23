@@ -2,11 +2,11 @@
 
 # Corsify Proxy Server
 
-[![GitHub issues](https://img.shields.io/github/issues/JosunLP/Corsify-proxy)](https://github.com/JosunLP/Corsify-proxy/issues)
-[![GitHub forks](https://img.shields.io/github/forks/JosunLP/Corsify-proxy)](https://github.com/JosunLP/Corsify-proxy/network)
-[![GitHub stars](https://img.shields.io/github/stars/JosunLP/Corsify-proxy)](https://github.com/JosunLP/Corsify-proxy/stargazers)
-[![GitHub license](https://img.shields.io/github/license/JosunLP/Corsify-proxy)](https://github.com/JosunLP/Corsify-proxy/blob/main/LICENSE)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/josunlp/corsify-proxy)
+[![GitHub issues](https://img.shields.io/github/issues/JosunLP/Corsify-proxy?style=for-the-badge)](https://github.com/JosunLP/Corsify-proxy/issues)
+[![GitHub forks](https://img.shields.io/github/forks/JosunLP/Corsify-proxy?style=for-the-badge)](https://github.com/JosunLP/Corsify-proxy/network)
+[![GitHub stars](https://img.shields.io/github/stars/JosunLP/Corsify-proxy?style=for-the-badge)](https://github.com/JosunLP/Corsify-proxy/stargazers)
+[![GitHub license](https://img.shields.io/github/license/JosunLP/Corsify-proxy?style=for-the-badge)](https://github.com/JosunLP/Corsify-proxy/blob/main/LICENSE)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/josunlp/corsify-proxy?style=for-the-badge)
 
 ### A simple Proxy API that adds CORS Headers to Atom and RSS Feeds
 
